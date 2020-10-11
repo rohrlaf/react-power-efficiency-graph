@@ -38,6 +38,12 @@ const Chart = ({ data, title, props }: Props) => {
         data: data.plan,
       },
     ],
+    tooltip: {
+      formatter: function () {
+        const point: any = this.point as any;
+        return `Actual ${point.actual}, Plan ${point.plan}, Efficiency ${point.efficiency}`;
+      },
+    },
     xAxis: {
       labels: {
         formatter: function () {

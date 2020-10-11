@@ -14,9 +14,27 @@ const parseEfficiencyData = (data: any) => {
 
   // parse all objects into respective arrays
   for (let item of data) {
-    series.actual.push([item.timestamp, item.actual]);
-    series.efficiency.push([item.timestamp, item.efficiency]);
-    series.plan.push([item.timestamp, item.plan]);
+    series.actual.push({
+      x: item.timestamp,
+      y: item.actual,
+      actual: item.actual,
+      efficiency: item.efficiency,
+      plan: item.plan,
+    });
+    series.efficiency.push({
+      x: item.timestamp,
+      y: item.efficiency,
+      actual: item.actual,
+      efficiency: item.efficiency,
+      plan: item.plan,
+    });
+    series.plan.push({
+      x: item.timestamp,
+      y: item.plan,
+      actual: item.actual,
+      efficiency: item.efficiency,
+      plan: item.plan,
+    });
   }
 
   return series;
