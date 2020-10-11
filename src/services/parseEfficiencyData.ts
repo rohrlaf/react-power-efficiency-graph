@@ -9,8 +9,8 @@ const parseEfficiencyData = (data: any) => {
   };
 
   // extrac max and min from latest item
-  series.maximum = data[-1]?.maximum;
-  series.minimum = data[-1]?.minimum;
+  series.maximum = data[data.length - 1]?.maximum;
+  series.minimum = data[data.length - 1]?.minimum;
 
   // parse all objects into respective arrays
   for (let item of data) {

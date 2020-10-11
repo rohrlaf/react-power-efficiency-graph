@@ -56,6 +56,26 @@ const Chart = ({ data, title, props }: Props) => {
     },
     yAxis: [
       {
+        plotLines: [
+          {
+            color: "#4a5860",
+            dashStyle: "ShortDot",
+            label: {
+              text: "Maximum Power",
+            },
+            width: 1,
+            value: data.maximum,
+          },
+          {
+            color: "#4a5860",
+            dashStyle: "ShortDot",
+            label: {
+              text: "Minimum Power",
+            },
+            width: 1,
+            value: data.minimum,
+          },
+        ],
         title: {
           text: "MW",
         },
