@@ -40,7 +40,7 @@ const Chart = ({ data, title, props }: Props) => {
       },
       {
         name: "Actual",
-        type: "bar",
+        type: "column",
         yAxis: 0,
         data: [
           {
@@ -59,7 +59,7 @@ const Chart = ({ data, title, props }: Props) => {
       },
       {
         name: "Plan",
-        type: "bar",
+        type: "column",
         yAxis: 0,
         data: [
           {
@@ -77,10 +77,15 @@ const Chart = ({ data, title, props }: Props) => {
         ],
       },
     ],
+    xAxis: {
+      labels: {
+        formatter: function () {
+          return Highcharts.dateFormat("%d %b '%y", this.value);
+        },
+      },
+    },
     yAxis: [
       {
-        max: 1.296,
-        min: 0.05,
         title: {
           text: "MW",
         },
