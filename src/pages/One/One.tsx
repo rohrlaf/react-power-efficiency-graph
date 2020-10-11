@@ -12,7 +12,7 @@ const One = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <>
