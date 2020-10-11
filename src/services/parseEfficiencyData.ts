@@ -3,16 +3,20 @@ const parseEfficiencyData = (data: any) => {
   let series: any = {
     actual: [],
     efficiency: [],
+    maximum: null,
+    minimum: null,
     plan: [],
-    timestamp: [],
   };
+
+  // extrac max and min from latest item
+  series.maximum = data[-1]?.maximum;
+  series.minimum = data[-1]?.minimum;
 
   // parse all objects into respective arrays
   for (let item of data) {
-    series.actual.push(item.actual);
-    series.efficiency.push(item.efficiency);
-    series.plan.push(item.plan);
-    series.timestamp.push(item.timestamp);
+    series.actual.push([item.timestamp, item.actual]);
+    series.efficiency.push([item.timestamp, item.efficiency]);
+    series.plan.push([item.timestamp, item.plan]);
   }
 
   return series;
